@@ -4,6 +4,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --accent-main-1: #a3a3a3;
+  --accent-main-2: #6b7271;
+  --main-black: #121212;
+  --main-secondary: #bbf49c;
+  --main-primary: #1e4841;
+  --main-tertiary: #ecf4e9;
+  --accent-accent-3-stoke: #e5e6e6;
+  --alert-success: #1ea031;
+  --alert-error: #ff434e;
 }
 
 @theme inline {
@@ -52,5 +61,62 @@ body {
   }
   .text_18 {
     font-size: 1.125rem;
+  }
+}
+@layer utilities {
+  .text_accent_1 {
+    color: var(--accent-main-1);
+  }
+  .text_accent_2 {
+    color: var(--accent-main-2);
+  }
+  .text_contrast {
+    color: var(--main-black);
+  }
+  .text_main_secondary {
+    color: var(--main-secondary);
+  }
+  .text_main_primary {
+    color: var(--main-primary);
+  }
+  .text_main_tertiary {
+    color: var(--main-tertiary);
+  }
+  .text_accent_accent_3_stroke {
+    color: var(--accent-accent-3-stoke);
+  }
+  .text_alert_success {
+    color: var(--alert-success);
+  }
+  .text_alert_error {
+    color: var(--alert-error);
+  }
+
+  .bg_accent_1 {
+    background-color: var(--accent-main-1);
+  }
+  .bg_accent-2 {
+    background-color: var(--accent-main-2);
+  }
+  .bg_contrast {
+    background-color: var(--main-black);
+  }
+  .bg_main_secondary {
+    background-color: var(--main-secondary);
+  }
+  .bg_main_primary {
+    background-color: var(--main-primary);
+  }
+  .bg_main_tertiary {
+    background-color: var(--main-tertiary);
+  }
+  .bg_accent_accent_3_stroke {
+    background-color: var(--accent-accent-3-stoke);
+  }
+  .bg_alert_success {
+    background-color: var(--alert-success);
+  }
+  .bg_alert_error {
+    background-color: var(--alert-error);
   }
 }

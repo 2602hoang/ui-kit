@@ -38,15 +38,15 @@ var textVariants = cva(
         "text13-500": "text_13  font-medium"
       },
       color: {
-        "text-accent-1": "text-[#a3a3a3]",
-        "text-accent-2": "text-[#6b7271]",
-        "text-contrast": "text-[#121212]",
-        "text-main-secondary": "text-[#bbf49c]",
-        "text-main-primary": "text-[#1e4841]",
-        "text-main-tertiary": "text-[#ecf4e9]",
-        "text-accent-accent-3-stroke": "text-[#e5e6e6]",
-        "text-alert-success": "text-[#1ea031]",
-        "text-alert-error": "text-[#ff434e]",
+        "text-accent-1": "text_accent_1",
+        "text-accent-2": "text_accent_2",
+        "text-contrast": "text_contrast",
+        "text-main-secondary": "text_main_secondary",
+        "text-main-primary": "text_main_primary",
+        "text-main-tertiary": "text_main_tertiary",
+        "text-accent-accent-3-stroke": "text-accent_accent_3_stroke",
+        "text-alert-success": "text_alert_success",
+        "text-alert-error": "text_alert_error",
         "text-fff": "text-[#fff]"
       }
     },
