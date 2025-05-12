@@ -30,7 +30,9 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var index_exports = {};
 __export(index_exports, {
-  Button: () => Button
+  Button: () => Button,
+  Text: () => Text,
+  useBoolean: () => useBoolean
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -56,7 +58,78 @@ var Button = ({ className, asChild = false, ...props }) => {
     }
   );
 };
+
+// src/components/text.tsx
+var import_react_slot2 = require("@radix-ui/react-slot");
+var import_class_variance_authority = require("class-variance-authority");
+var import_react2 = __toESM(require("react"));
+var textVariants = (0, import_class_variance_authority.cva)(
+  "leading-[140%]",
+  {
+    variants: {
+      variant: {
+        "text11-500": "text_11  font-medium",
+        "text12-600": "text_12  font-semibold",
+        "text10-600": "text_10 leading-[120%] font-semibold",
+        "text14-600": "text_14  font-semibold",
+        "text14-700": "text_14  !font-boild",
+        "text13-500": "text_13  font-medium"
+      },
+      color: {
+        "text-accent-1": "text-[#a3a3a3]",
+        "text-accent-2": "text-[#6b7271]",
+        "text-contrast": "text-[#121212]",
+        "text-main-secondary": "text-[#bbf49c]",
+        "text-main-primary": "text-[#1e4841]",
+        "text-main-tertiary": "text-[#ecf4e9]",
+        "text-accent-accent-3-stroke": "text-[#e5e6e6]",
+        "text-alert-success": "text-[#1ea031]",
+        "text-alert-error": "text-[#ff434e]",
+        "text-fff": "text-[#fff]"
+      }
+    },
+    defaultVariants: {
+      variant: "text11-500",
+      color: "text-accent-2"
+    }
+  }
+);
+var Text = ({ children, variant, color, asChild = false, className, tag, ...props }) => {
+  const Comp = asChild ? import_react_slot2.Slot : tag ??= "span";
+  return /* @__PURE__ */ import_react2.default.createElement(Comp, { className: cn(textVariants({ variant, className, color })), ...props }, children);
+};
+
+// src/hooks/useBoolean.ts
+var import_react3 = require("react");
+var sharedState = {};
+var listeners = {};
+var useBoolean = (key) => {
+  const [value, setValue] = (0, import_react3.useState)(sharedState[key] ?? false);
+  if (!listeners[key]) {
+    listeners[key] = /* @__PURE__ */ new Set();
+  }
+  listeners[key].add(setValue);
+  const notifyAll = (newVal) => {
+    sharedState[key] = newVal;
+    listeners[key].forEach((listener) => listener(newVal));
+  };
+  const setTrue = (0, import_react3.useCallback)(() => notifyAll(true), [key]);
+  const setFalse = (0, import_react3.useCallback)(() => notifyAll(false), [key]);
+  const toggle = (0, import_react3.useCallback)(() => notifyAll(!sharedState[key]), [key]);
+  return {
+    value,
+    setValue: (val) => {
+      const newValue = typeof val === "function" ? val(sharedState[key] ?? false) : val;
+      notifyAll(newValue);
+    },
+    setTrue,
+    setFalse,
+    toggle
+  };
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  Button
+  Button,
+  Text,
+  useBoolean
 });
